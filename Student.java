@@ -9,4 +9,7 @@ int roll;
   public void printName(){
   System.out.printlln(name);
   }
+  public void printRoll(){
+  System.out.println(roll);
+  }
 }
