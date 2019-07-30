@@ -69,9 +69,5 @@ public class MainShopping {
         cart.modifyQuantity(p1, 5);
         cart.subTotal();
 
-
-
-
-
     }
 }
