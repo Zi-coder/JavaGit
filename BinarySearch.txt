@@ -1,0 +1,30 @@
+public class NewMain{
+  public static int BinarySearch(int ar[],int l,int h,int k){
+      int ret =0;
+      int m = (l+h)/2;
+            if(h >= l) {
+            if (ar[m] == k) {
+                return m;
+            } else if (k < ar[m]) {
+                h = m;
+
+             return   BinarySearch(ar, l, h, k);
+            } else {
+                l = m;
+
+               return BinarySearch(ar, l, h, k);
+            }
+        }
+        else
+            return -1;
+}
+    public static void main(String []Anil) {
+        int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+        int key = 2;
+        int size = arr.length;
+        int res = BinarySearch(arr,0,size-1,key);
+        System.out.print(key);
+        System.out.print(" is present at ");
+        System.out.print(res);
+    }
+}
