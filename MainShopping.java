@@ -7,10 +7,12 @@ class Product {
     String name;
     int price;
     int quantity;
+    Date date;
     Product(String n, int p, int q) {
         name = n;
         price = p;
         quantity = q;
+        date = new Date();
     }
     public void setQuantity(int n) {
         quantity = n;
@@ -23,9 +25,6 @@ class ShoppingCart {
     }
     public void removeItem(Product p) {
         cart.remove(p);
-    }
-    public void modifyQuantity(Product p, int n) {
-        p.setQuantity(n);
     }
     public void subTotal() {
         int sum = 0, temp = 0;
@@ -66,7 +65,7 @@ public class MainShopping {
         cart.addItem(p5);
         cart.subTotal();
         cart.removeItem(p5);
-        cart.modifyQuantity(p1, 5);
+
         cart.subTotal();
 
     }
