@@ -1,0 +1,31 @@
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+public class NewMain {
+    public static void main(String []args) throws ParserConfigurationException, IOException, SAXException {
+        String xml = "<data>\n" +
+                "    <order>\n" +
+                "        <name>Pizza</name>\n" +
+                "        <topping>\n" +
+                "            <topping>Cheese</topping>\n" +
+                "            <topping>Veges</topping>\n" +
+                "             <topping>Paneer</topping> \n" +
+                "        </topping>\n" +
+                "        <person gender=\"Male\">\n" +
+                "            <f_name>Anil</f_name>\n" +
+                "            <l_name>Kumar</l_name>\n" +
+                "        </person>\n" +
+                "        \n" +
+                "    </order>\n" +
+                "</data>";
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        ByteArrayInputStream in = new ByteArrayInputStream(xml.getBytes());
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document doc = builder.parse(in);
+        System.out.println(doc.getElementsByTagName("order").item(0).getTextContent());
+   }
+}

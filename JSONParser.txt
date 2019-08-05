@@ -1,0 +1,11 @@
+import org.json.JSONObject;
+//The above library org.json should be added in library
+
+public class NewMain {
+    public static void main(String []args){
+        String object = " {  'key':'value','key1':'value1'}";
+        JSONObject jsonObject = new JSONObject(object);
+        jsonObject.put("Key3","value3");
+        System.out.println(jsonObject.get("Key3"));
+    }
+}
