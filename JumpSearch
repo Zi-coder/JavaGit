@@ -1,0 +1,61 @@
+import java.util.*;
+
+public class NewMain {
+
+    public static void main(String[] args) { //Writing my code here
+        int index;
+        int[] ar = {
+            11,
+            22,
+            33,
+            44,
+            55,
+            66,
+            77,
+            88,
+            99,
+            111,
+            222,
+            333,
+            444,
+            555
+        };
+        index = jumpSearch(ar, 44);
+        System.out.println(index);
+
+    }
+    public static int jumpSearch(int arr[], int key) {
+        boolean br = false;
+
+        int x = (int) Math.sqrt(arr.length);
+        for (int i = 0; i < arr.length; i += x) {
+
+            if (arr[i] > key) {
+                i = i - x;
+                for (int j = i; j <= i + x; j++) {
+
+                    if (arr[j] == key) {
+                        br = true;
+
+                        return j;
+                    }
+
+                }
+                if (br)
+                    break;
+
+            } else {
+                if (arr[arr.length - 1] == key) {
+                    br = true;
+
+                    return arr.length - 1;
+                }
+                if (br)
+                    break;
+            }
+        }
+
+        return -1;
+    }
+
+}
